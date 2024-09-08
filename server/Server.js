@@ -70,7 +70,10 @@ app.get('/myprofile',middleware,async(req,res)=>{
         res.status(500).send('internl server error');
     }
 })
-    
+app.get('/hello',(req,res)=>{
+res.send("hello world")
+
+})
 
 app.listen(4000, () => {
     console.log("Server started successfully on port 4000");
