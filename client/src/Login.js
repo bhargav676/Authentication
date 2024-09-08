@@ -12,10 +12,10 @@ const Login = () => {
   const submithandler = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:4000/login', { email: mail, password: pass })
+      .post('https://server-jade-seven.vercel.app/login', { email: mail, password: pass })
       .then((res) => {
         const token = res.data.token;
-        localStorage.setItem('token', token); // Store token in localStorage
+        localStorage.setItem('token', token); 
         setToken(token);
       })
       .catch((err) => console.error(err.response.data));

@@ -10,7 +10,7 @@ const Myprofile = () => {
 
   useEffect(() => {
     if (token) {
-      axios.get('http://127.0.0.1:4000/myprofile', {
+      axios.get('https://server-jade-seven.vercel.app/myprofile', {
         headers: {
           'x-token': token
         }

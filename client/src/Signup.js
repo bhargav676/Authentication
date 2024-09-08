@@ -8,7 +8,7 @@ const Signup = () => {
   const navigate = useNavigate(); 
   const submithandler = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/register', { name: user, email: mail, password: pass })
+    axios.post('https://server-jade-seven.vercel.app/register', { name: user, email: mail, password: pass })
     .then(res => {
       navigate('/login');
     })
