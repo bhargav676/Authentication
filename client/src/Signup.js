@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
 const Signup = () => {
   const [user, setUser] = useState('');
   const [mail, setMail] = useState('');
   const [pass, setPass] = useState('');
   const navigate = useNavigate(); 
+
   const submithandler = (e) => {
     e.preventDefault();
     axios.post('https://server-jade-seven.vercel.app/register', { name: user, email: mail, password: pass })
     .then(res => {
       navigate('/login');
     })
-
-      .catch(err => console.error(err.response.data));
-  
+    .catch(err => console.error(err.response.data));
   };
 
   return (
@@ -25,14 +25,15 @@ const Signup = () => {
         <div className="relative">
           <input
             type="text"
-            placeholder=" "
             value={user}
-            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out peer"
+            className={`w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out peer ${
+              user ? 'pt-6' : ''
+            }`}
             onChange={(e) => setUser(e.target.value)}
           />
           <label
-            className={`absolute left-4 top-1/2 transform -translate-y-1/2 text-sm font-medium text-gray-500 transition-all duration-300 ease-in-out pointer-events-none
-              ${user ? '-top-2.5 text-xs text-teal-500' : 'peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-teal-500'}`}
+            className={`absolute left-4 top-3 text-sm font-medium text-gray-500 transition-all duration-300 ease-in-out pointer-events-none
+              ${user ? '-top-2 text-xs text-teal-500' : 'peer-focus:-top-2 peer-focus:text-xs peer-focus:text-teal-500'}`}
           >
             Name
           </label>
@@ -41,14 +42,15 @@ const Signup = () => {
         <div className="relative">
           <input
             type="email"
-            placeholder=" "
             value={mail}
-            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out peer"
+            className={`w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out peer ${
+              mail ? 'pt-6' : ''
+            }`}
             onChange={(e) => setMail(e.target.value)}
           />
           <label
-            className={`absolute left-4 top-1/2 transform -translate-y-1/2 text-sm font-medium text-gray-500 transition-all duration-300 ease-in-out pointer-events-none
-              ${mail ? '-top-2.5 text-xs text-teal-500' : 'peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-teal-500'}`}
+            className={`absolute left-4 top-3 text-sm font-medium text-gray-500 transition-all duration-300 ease-in-out pointer-events-none
+              ${mail ? '-top-2 text-xs text-teal-500' : 'peer-focus:-top-2 peer-focus:text-xs peer-focus:text-teal-500'}`}
           >
             Email
           </label>
@@ -57,14 +59,15 @@ const Signup = () => {
         <div className="relative">
           <input
             type="password"
-            placeholder=" "
             value={pass}
-            className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out peer"
+            className={`w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 ease-in-out peer ${
+              pass ? 'pt-6' : ''
+            }`}
             onChange={(e) => setPass(e.target.value)}
           />
           <label
-            className={`absolute left-4 top-1/2 transform -translate-y-1/2 text-sm font-medium text-gray-500 transition-all duration-300 ease-in-out pointer-events-none
-              ${pass ? '-top-2.5 text-xs text-teal-500' : 'peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-teal-500'}`}
+            className={`absolute left-4 top-3 text-sm font-medium text-gray-500 transition-all duration-300 ease-in-out pointer-events-none
+              ${pass ? '-top-2 text-xs text-teal-500' : 'peer-focus:-top-2 peer-focus:text-xs peer-focus:text-teal-500'}`}
           >
             Password
           </label>
